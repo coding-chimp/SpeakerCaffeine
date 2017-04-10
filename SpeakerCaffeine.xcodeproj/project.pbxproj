@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		8E5663B81E9BFF6B005265C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */; };
-		8E5663BA1E9BFF6B005265C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663B91E9BFF6B005265C2 /* ViewController.swift */; };
 		8E5663BC1E9BFF6B005265C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */; };
-		8E5663BF1E9BFF6B005265C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663BD1E9BFF6B005265C2 /* Main.storyboard */; };
+		8E5663C71E9C0058005265C2 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663C61E9C0058005265C2 /* StatusMenuController.swift */; };
+		8E5663C91E9C03C0005265C2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663C81E9C03C0005265C2 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E5663B41E9BFF6B005265C2 /* SpeakerCaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerCaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8E5663B91E9BFF6B005265C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8E5663BE1E9BFF6B005265C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E5663C01E9BFF6B005265C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E5663C61E9C0058005265C2 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		8E5663C81E9C03C0005265C2 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +53,10 @@
 			isa = PBXGroup;
 			children = (
 				8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */,
-				8E5663B91E9BFF6B005265C2 /* ViewController.swift */,
+				8E5663C61E9C0058005265C2 /* StatusMenuController.swift */,
 				8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */,
-				8E5663BD1E9BFF6B005265C2 /* Main.storyboard */,
 				8E5663C01E9BFF6B005265C2 /* Info.plist */,
+				8E5663C81E9C03C0005265C2 /* MainMenu.xib */,
 			);
 			path = SpeakerCaffeine;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E5663BC1E9BFF6B005265C2 /* Assets.xcassets in Resources */,
-				8E5663BF1E9BFF6B005265C2 /* Main.storyboard in Resources */,
+				8E5663C91E9C03C0005265C2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,23 +133,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E5663BA1E9BFF6B005265C2 /* ViewController.swift in Sources */,
+				8E5663C71E9C0058005265C2 /* StatusMenuController.swift in Sources */,
 				8E5663B81E9BFF6B005265C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8E5663BD1E9BFF6B005265C2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E5663BE1E9BFF6B005265C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8E5663C11E9BFF6B005265C2 /* Debug */ = {
