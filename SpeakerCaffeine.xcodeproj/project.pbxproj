@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62A55B84E230FD77E5974BA9 /* Pods_SpeakerCaffeine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */; };
 		8E5663B81E9BFF6B005265C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */; };
 		8E5663BC1E9BFF6B005265C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */; };
 		8E5663C71E9C0058005265C2 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663C61E9C0058005265C2 /* StatusMenuController.swift */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136D169A10024B5606AC8CBA /* Pods-SpeakerCaffeine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerCaffeine.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine.release.xcconfig"; sourceTree = "<group>"; };
+		154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeakerCaffeine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69212781E171C212E1F1806F /* Pods-SpeakerCaffeine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerCaffeine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine.debug.xcconfig"; sourceTree = "<group>"; };
 		8E5663B41E9BFF6B005265C2 /* SpeakerCaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerCaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,17 +31,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A55B84E230FD77E5974BA9 /* Pods_SpeakerCaffeine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88347896BF35B0151F25F34B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69212781E171C212E1F1806F /* Pods-SpeakerCaffeine.debug.xcconfig */,
+				136D169A10024B5606AC8CBA /* Pods-SpeakerCaffeine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E5663AB1E9BFF6B005265C2 = {
 			isa = PBXGroup;
 			children = (
 				8E5663B61E9BFF6B005265C2 /* SpeakerCaffeine */,
 				8E5663B51E9BFF6B005265C2 /* Products */,
+				88347896BF35B0151F25F34B /* Pods */,
+				E34E22EE6B8B5BBA82E1C0DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +77,14 @@
 			path = SpeakerCaffeine;
 			sourceTree = "<group>";
 		};
+		E34E22EE6B8B5BBA82E1C0DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E5663C31E9BFF6B005265C2 /* Build configuration list for PBXNativeTarget "SpeakerCaffeine" */;
 			buildPhases = (
+				087D2E92786D5DA83F2F8B9D /* [CP] Check Pods Manifest.lock */,
 				8E5663B01E9BFF6B005265C2 /* Sources */,
 				8E5663B11E9BFF6B005265C2 /* Frameworks */,
 				8E5663B21E9BFF6B005265C2 /* Resources */,
+				DEDEBE6E7BC3D2C33CEBC9C8 /* [CP] Embed Pods Frameworks */,
+				C0535DB2BDB43DE3E810033A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,6 +154,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		087D2E92786D5DA83F2F8B9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C0535DB2BDB43DE3E810033A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEDEBE6E7BC3D2C33CEBC9C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E5663B01E9BFF6B005265C2 /* Sources */ = {
@@ -235,6 +310,7 @@
 		};
 		8E5663C41E9BFF6B005265C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69212781E171C212E1F1806F /* Pods-SpeakerCaffeine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -249,6 +325,7 @@
 		};
 		8E5663C51E9BFF6B005265C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 136D169A10024B5606AC8CBA /* Pods-SpeakerCaffeine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
