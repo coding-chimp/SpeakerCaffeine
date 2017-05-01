@@ -7,13 +7,10 @@
 //
 
 import Cocoa
-import AVFoundation
-import SwiftyTimer
 
 class StatusMenuController: NSObject {
 
-  var audioPlayer: AVAudioPlayer?
-
+  let silentAudio = SilentAudio()
   let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
 
   @IBOutlet weak var statusMenu: NSMenu!
@@ -26,25 +23,6 @@ class StatusMenuController: NSObject {
     statusItem.title = "SpeakerCaffeine"
     statusItem.menu = statusMenu
 
-    periodicallyPlayAudio()
+    silentAudio.periodicallyPlay()
   }
-
-  func periodicallyPlayAudio() {
-    Timer.every(1.minute, playAudio)
-  }
-
-  func playAudio() {
-    let asset = NSDataAsset(name: "SilentAudio")!
-
-    do {
-      audioPlayer = try AVAudioPlayer(data: asset.data, fileTypeHint: "wav")
-      guard let audioPlayer = audioPlayer else { return }
-
-      audioPlayer.prepareToPlay()
-      audioPlayer.play()
-    } catch let error {
-      print(error.localizedDescription)
-    }
-  }
-
 }
