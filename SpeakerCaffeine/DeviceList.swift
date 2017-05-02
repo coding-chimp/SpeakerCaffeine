@@ -26,37 +26,29 @@ class DeviceList {
   }
 
   func generate() {
-    let devices = AudioDevice.allOutputDevices()
-    var deviceNames = devices.map(deviceName)
+    var devices = AudioDevice.allOutputDevices()
 
-    if devices.contains(where: deviceIsHeadphones) {
-      deviceNames.insert("Headphones", at: 0)
+    if let index = devices.index(where: { $0.name == "Built-in Output" }) {
+      let device = devices.remove(at: index)
+      devices.insert(device, at: 0)
     }
 
-    self.deviceNames = deviceNames
+    deviceNames = devices.map(deviceName)
   }
 
   private func deviceName(_ device: AudioDevice) -> String {
-    if device.name == "Built-in Output" {
-      return "Internal Speakers"
-    } else {
-      return device.name
-    }
-  }
+    if device.name != "Built-in Output" { return device.name }
 
-  private func deviceIsHeadphones(_ device: AudioDevice) -> Bool {
-    return device.name == "Built-in Output" && device.isJackConnected(direction: .playback) ?? false
+    if device.isJackConnected(direction: .playback) ?? false {
+      return "Headphones"
+    } else {
+      return "Internal Speakers"
+    }
   }
 
   func isJackConnectedDidChange(for device: AudioDevice) {
     if device.name != "Built-in Output" { return }
 
-    if let index = deviceNames.index(of: "Headphones") {
-      deviceNames.remove(at: index)
-    }
-
-    if device.isJackConnected(direction: .playback) ?? false {
-      deviceNames.insert("Headphones", at: 0)
-    }
+    deviceNames[0] = deviceName(device)
   }
 }
