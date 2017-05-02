@@ -76,19 +76,32 @@ extension StatusMenuController: EventSubscriber {
     case let event as AudioDeviceEvent:
       switch event {
       case .isJackConnectedDidChange(let device):
-        deviceList.isJackConnectedDidChange(for: device)
+        if device.name == "Built-in Output" {
+          deviceList.populate()
+          startOrStopAudio(device)
+        }
       default:
         break
       }
     case let event as AudioHardwareEvent:
       switch event {
-        case .deviceListChanged(_, _):
-          deviceList.populate()
-        default:
-          break
-        }
+      case .defaultOutputDeviceChanged(let device):
+        startOrStopAudio(device)
+      case .deviceListChanged(_, _):
+        deviceList.populate()
+      default:
+        break
+      }
     default:
       break
+    }
+  }
+
+  func startOrStopAudio(_ device: AudioDevice) {
+    if deviceList.enabled(device) {
+      silentAudio.periodicallyPlay()
+    } else {
+      silentAudio.stop()
     }
   }
 }

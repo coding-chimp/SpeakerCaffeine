@@ -51,6 +51,12 @@ class DeviceList {
     return enabledDevices.contains(currentDeviceName)
   }
 
+  func enabled(_ device: AudioDevice) -> Bool {
+    let name = deviceName(device)
+    
+    return enabledDevices.contains(name)
+  }
+
   func state(for deviceName: String) -> Int {
     if enabledDevices.contains(deviceName) {
       return NSOnState
@@ -68,12 +74,6 @@ class DeviceList {
 
     defaults.setValue(Array(enabledDevices), forKey: "enabledDevices")
     populate()
-  }
-
-  func isJackConnectedDidChange(for device: AudioDevice) {
-    if device.name == "Built-in Output" {
-      populate()
-    }
   }
 
   private func deviceName(_ device: AudioDevice) -> String {
