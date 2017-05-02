@@ -26,10 +26,10 @@ class DeviceList {
   }
 
   func generate() {
-    var deviceNames = AudioDevice.allOutputDevices().map(deviceName)
-    let currentDevice = AudioDevice.defaultOutputDevice()
+    let devices = AudioDevice.allOutputDevices()
+    var deviceNames = devices.map(deviceName)
 
-    if let device = currentDevice, deviceIsHeadphone(device) {
+    if devices.contains(where: deviceIsHeadphones) {
       deviceNames.insert("Headphones", at: 0)
     }
 
@@ -44,7 +44,7 @@ class DeviceList {
     }
   }
 
-  private func deviceIsHeadphone(_ device: AudioDevice) -> Bool {
+  private func deviceIsHeadphones(_ device: AudioDevice) -> Bool {
     return device.name == "Built-in Output" && device.isJackConnected(direction: .playback) ?? false
   }
 

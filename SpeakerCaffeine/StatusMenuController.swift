@@ -31,6 +31,7 @@ class StatusMenuController: NSObject, DeviceListDelegate {
     silentAudio.periodicallyPlay()
 
     NotificationCenter.defaultCenter.subscribe(self, eventType: AudioDeviceEvent.self, dispatchQueue: DispatchQueue.main)
+    NotificationCenter.defaultCenter.subscribe(self, eventType: AudioHardwareEvent.self, dispatchQueue: DispatchQueue.main)
   }
 
   func deviceNamesChanged(oldDeviceNames: [String], newDeviceNames: [String]) {
