@@ -28,7 +28,9 @@ class StatusMenuController: NSObject, DeviceListDelegate {
     deviceList.delegate = self
     deviceList.populate()
 
-    silentAudio.periodicallyPlay()
+    if deviceList.currentDeviceEnabled() {
+      silentAudio.periodicallyPlay()
+    }
 
     NotificationCenter.defaultCenter.subscribe(self, eventType: AudioDeviceEvent.self, dispatchQueue: DispatchQueue.main)
     NotificationCenter.defaultCenter.subscribe(self, eventType: AudioHardwareEvent.self, dispatchQueue: DispatchQueue.main)
@@ -48,6 +50,7 @@ class StatusMenuController: NSObject, DeviceListDelegate {
       if index + 1 <= oldCount {
         let item = statusMenu.item(at: index + startIndex)
         item?.title = deviceName
+        item?.state = deviceList.state(for: deviceName)
       } else {
         addDeviceMenuItem(deviceName, position: startIndex + index)
       }
@@ -55,10 +58,15 @@ class StatusMenuController: NSObject, DeviceListDelegate {
   }
 
   func addDeviceMenuItem(_ deviceName: String, position: Int) {
-    let item = NSMenuItem(title: deviceName, action: nil, keyEquivalent: "")
+    let item = NSMenuItem(title: deviceName, action: #selector(toggleDevice(sender:)), keyEquivalent: "")
     item.target = self
+    item.state = deviceList.state(for: deviceName)
 
     statusMenu.insertItem(item, at: position)
+  }
+
+  func toggleDevice(sender: NSMenuItem) {
+    deviceList.toggle(sender.title)
   }
 }
 
