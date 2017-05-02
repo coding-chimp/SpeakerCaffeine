@@ -6,10 +6,11 @@
 //  Copyright © 2017 Bastian Bartmann. All rights reserved.
 //
 
-import Cocoa
 import AMCoreAudio
+import Cocoa
 
-class StatusMenuController: NSObject {
+class StatusMenuController: NSObject, DeviceListDelegate {
+  let deviceList = DeviceList()
   let silentAudio = SilentAudio()
   let startIndex = 1
   let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
@@ -24,36 +25,32 @@ class StatusMenuController: NSObject {
     statusItem.title = "SpeakerCaffeine"
     statusItem.menu = statusMenu
 
-    let deviceNames = getDeviceNames()
-
-    for (index, deviceName) in deviceNames.enumerated() {
-      addDeviceMenuItem(deviceName, position: startIndex + index)
-    }
+    deviceList.delegate = self
+    deviceList.generate()
 
     silentAudio.periodicallyPlay()
+
+    NotificationCenter.defaultCenter.subscribe(self, eventType: AudioDeviceEvent.self, dispatchQueue: DispatchQueue.main)
   }
 
-  private func getDeviceNames() -> [String] {
-    var deviceNames = AudioDevice.allOutputDevices().map(deviceName)
-    let currentDevice = AudioDevice.defaultOutputDevice()
+  func deviceNamesChanged(oldDeviceNames: [String], newDeviceNames: [String]) {
+    let oldCount = oldDeviceNames.count
+    let difference = oldCount - newDeviceNames.count
 
-    if let device = currentDevice, deviceIsHeadphone(device) {
-      deviceNames.insert("Headphones", at: 0)
+    if difference > 0 {
+      for index in 0..<difference {
+        statusMenu.removeItem(at: index + startIndex)
+      }
     }
 
-    return deviceNames
-  }
-
-  private func deviceName(_ device: AudioDevice) -> String {
-    if device.name == "Built-in Output" {
-      return "Internal Speakers"
-    } else {
-      return device.name
+    for (index, deviceName) in newDeviceNames.enumerated() {
+      if index + 1 <= oldCount {
+        let item = statusMenu.item(at: index + startIndex)
+        item?.title = deviceName
+      } else {
+        addDeviceMenuItem(deviceName, position: startIndex + index)
+      }
     }
-  }
-
-  private func deviceIsHeadphone(_ device: AudioDevice) -> Bool {
-    return device.name == "Built-in Output" && device.isJackConnected(direction: .playback) ?? false
   }
 
   func addDeviceMenuItem(_ deviceName: String, position: Int) {
@@ -61,5 +58,21 @@ class StatusMenuController: NSObject {
     item.target = self
 
     statusMenu.insertItem(item, at: position)
+  }
+}
+
+extension StatusMenuController: EventSubscriber {
+  func eventReceiver(_ event: Event) {
+    switch event {
+    case let event as AudioDeviceEvent:
+      switch event {
+      case .isJackConnectedDidChange(let device):
+        deviceList.isJackConnectedDidChange(for: device)
+      default:
+        break
+      }
+    default:
+      break
+    }
   }
 }
