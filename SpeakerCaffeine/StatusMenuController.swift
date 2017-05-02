@@ -26,7 +26,7 @@ class StatusMenuController: NSObject, DeviceListDelegate {
     statusItem.menu = statusMenu
 
     deviceList.delegate = self
-    deviceList.generate()
+    deviceList.populate()
 
     silentAudio.periodicallyPlay()
 
@@ -72,6 +72,13 @@ extension StatusMenuController: EventSubscriber {
       default:
         break
       }
+    case let event as AudioHardwareEvent:
+      switch event {
+        case .deviceListChanged(_, _):
+          deviceList.populate()
+        default:
+          break
+        }
     default:
       break
     }

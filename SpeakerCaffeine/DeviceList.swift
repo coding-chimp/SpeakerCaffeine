@@ -25,7 +25,7 @@ class DeviceList {
     deviceNames = []
   }
 
-  func generate() {
+  func populate() {
     var devices = AudioDevice.allOutputDevices()
 
     if let index = devices.index(where: { $0.name == "Built-in Output" }) {
