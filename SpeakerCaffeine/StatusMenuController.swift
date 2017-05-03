@@ -8,16 +8,26 @@
 
 import AMCoreAudio
 import Cocoa
+import ServiceManagement
 
 class StatusMenuController: NSObject, DeviceListDelegate {
+  let defaults = UserDefaults.standard
   let deviceList = DeviceList()
   let silentAudio = SilentAudio()
+  var startAtLogin = false
   let startIndex = 1
   let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
   var statusButton: NSStatusBarButton?
 
   @IBOutlet weak var statusMenu: NSMenu!
+  @IBOutlet weak var startAtLoginItem: NSMenuItem!
 
+  @IBAction func toggleStartAtLogin(_ sender: Any) {
+    startAtLogin = !startAtLogin
+    setStartAtLoginItemState()
+    setLoginItem()
+  }
+  
   @IBAction func quitClicked(_ sender: Any) {
     NSApplication.shared().terminate(self)
   }
@@ -28,6 +38,9 @@ class StatusMenuController: NSObject, DeviceListDelegate {
     icon?.isTemplate = true
     statusButton?.image = icon
     statusItem.menu = statusMenu
+
+    startAtLogin = defaults.bool(forKey: "startAtLogin")
+    setStartAtLoginItemState()
 
     deviceList.delegate = self
     deviceList.populate()
@@ -85,6 +98,20 @@ class StatusMenuController: NSObject, DeviceListDelegate {
 
   func toggleDevice(sender: NSMenuItem) {
     deviceList.toggle(sender.title)
+  }
+
+  private func setStartAtLoginItemState() {
+    if startAtLogin {
+      startAtLoginItem.state = NSOnState
+    } else {
+      startAtLoginItem.state = NSOffState
+    }
+  }
+
+  private func setLoginItem() {
+    let helperAppIdentifier = "org.code-chimp.SpeakerCaffeine-Helper"
+    defaults.set(startAtLogin, forKey: "startAtLogin")
+    SMLoginItemSetEnabled(helperAppIdentifier as CFString, startAtLogin)
   }
 }
 

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		62A55B84E230FD77E5974BA9 /* Pods_SpeakerCaffeine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */; };
+		8E011DBA1EBA29950005780E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E011DB91EBA29950005780E /* AppDelegate.swift */; };
+		8E011DBE1EBA29950005780E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E011DBD1EBA29950005780E /* Assets.xcassets */; };
+		8E011DC11EBA29950005780E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E011DBF1EBA29950005780E /* Main.storyboard */; };
+		8E011DC71EBA29AD0005780E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E011DC61EBA29AD0005780E /* ServiceManagement.framework */; };
+		8E011DC91EBA29F70005780E /* SpeakerCaffeine Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E011DB71EBA29950005780E /* SpeakerCaffeine Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8E5663B81E9BFF6B005265C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */; };
 		8E5663BC1E9BFF6B005265C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */; };
 		8E5663C71E9C0058005265C2 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5663C61E9C0058005265C2 /* StatusMenuController.swift */; };
@@ -16,10 +21,29 @@
 		8E8FEA5F1EB87922001EF05D /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FEA5E1EB87922001EF05D /* DeviceList.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8E011DC81EBA29D60005780E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				8E011DC91EBA29F70005780E /* SpeakerCaffeine Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		136D169A10024B5606AC8CBA /* Pods-SpeakerCaffeine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerCaffeine.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine.release.xcconfig"; sourceTree = "<group>"; };
 		154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeakerCaffeine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69212781E171C212E1F1806F /* Pods-SpeakerCaffeine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeakerCaffeine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeakerCaffeine/Pods-SpeakerCaffeine.debug.xcconfig"; sourceTree = "<group>"; };
+		8E011DB71EBA29950005780E /* SpeakerCaffeine Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpeakerCaffeine Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E011DB91EBA29950005780E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8E011DBD1EBA29950005780E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E011DC01EBA29950005780E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8E011DC21EBA29950005780E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E011DC61EBA29AD0005780E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		8E5663B41E9BFF6B005265C2 /* SpeakerCaffeine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakerCaffeine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5663B71E9BFF6B005265C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,10 +55,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8E011DB41EBA29950005780E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E5663B11E9BFF6B005265C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E011DC71EBA29AD0005780E /* ServiceManagement.framework in Frameworks */,
 				62A55B84E230FD77E5974BA9 /* Pods_SpeakerCaffeine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,10 +83,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8E011DB81EBA29950005780E /* SpeakerCaffeine Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8E011DB91EBA29950005780E /* AppDelegate.swift */,
+				8E011DBD1EBA29950005780E /* Assets.xcassets */,
+				8E011DBF1EBA29950005780E /* Main.storyboard */,
+				8E011DC21EBA29950005780E /* Info.plist */,
+			);
+			path = "SpeakerCaffeine Helper";
+			sourceTree = "<group>";
+		};
 		8E5663AB1E9BFF6B005265C2 = {
 			isa = PBXGroup;
 			children = (
 				8E5663B61E9BFF6B005265C2 /* SpeakerCaffeine */,
+				8E011DB81EBA29950005780E /* SpeakerCaffeine Helper */,
 				8E5663B51E9BFF6B005265C2 /* Products */,
 				88347896BF35B0151F25F34B /* Pods */,
 				E34E22EE6B8B5BBA82E1C0DB /* Frameworks */,
@@ -65,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8E5663B41E9BFF6B005265C2 /* SpeakerCaffeine.app */,
+				8E011DB71EBA29950005780E /* SpeakerCaffeine Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +131,7 @@
 		E34E22EE6B8B5BBA82E1C0DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E011DC61EBA29AD0005780E /* ServiceManagement.framework */,
 				154AD443237FDE2E4C65669D /* Pods_SpeakerCaffeine.framework */,
 			);
 			name = Frameworks;
@@ -94,6 +140,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8E011DB61EBA29950005780E /* SpeakerCaffeine Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E011DC51EBA29950005780E /* Build configuration list for PBXNativeTarget "SpeakerCaffeine Helper" */;
+			buildPhases = (
+				8E011DB31EBA29950005780E /* Sources */,
+				8E011DB41EBA29950005780E /* Frameworks */,
+				8E011DB51EBA29950005780E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpeakerCaffeine Helper";
+			productName = "SpeakerCaffeine Helper";
+			productReference = 8E011DB71EBA29950005780E /* SpeakerCaffeine Helper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8E5663B31E9BFF6B005265C2 /* SpeakerCaffeine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E5663C31E9BFF6B005265C2 /* Build configuration list for PBXNativeTarget "SpeakerCaffeine" */;
@@ -104,6 +167,7 @@
 				8E5663B21E9BFF6B005265C2 /* Resources */,
 				DEDEBE6E7BC3D2C33CEBC9C8 /* [CP] Embed Pods Frameworks */,
 				C0535DB2BDB43DE3E810033A /* [CP] Copy Pods Resources */,
+				8E011DC81EBA29D60005780E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -124,9 +188,14 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Bastian Bartmann";
 				TargetAttributes = {
+					8E011DB61EBA29950005780E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = XD334LJUCC;
+						ProvisioningStyle = Automatic;
+					};
 					8E5663B31E9BFF6B005265C2 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = C65F7326GE;
+						DevelopmentTeam = XD334LJUCC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,11 +214,21 @@
 			projectRoot = "";
 			targets = (
 				8E5663B31E9BFF6B005265C2 /* SpeakerCaffeine */,
+				8E011DB61EBA29950005780E /* SpeakerCaffeine Helper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8E011DB51EBA29950005780E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E011DBE1EBA29950005780E /* Assets.xcassets in Resources */,
+				8E011DC11EBA29950005780E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E5663B21E9BFF6B005265C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,6 +289,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8E011DB31EBA29950005780E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E011DBA1EBA29950005780E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E5663B01E9BFF6B005265C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,7 +310,52 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		8E011DBF1EBA29950005780E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E011DC01EBA29950005780E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8E011DC31EBA29950005780E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XD334LJUCC;
+				INFOPLIST_FILE = "SpeakerCaffeine Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.code-chimp.SpeakerCaffeine-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8E011DC41EBA29950005780E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XD334LJUCC;
+				INFOPLIST_FILE = "SpeakerCaffeine Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.code-chimp.SpeakerCaffeine-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		8E5663C11E9BFF6B005265C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -321,12 +453,14 @@
 			baseConfigurationReference = 69212781E171C212E1F1806F /* Pods-SpeakerCaffeine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C65F7326GE;
+				DEVELOPMENT_TEAM = XD334LJUCC;
 				INFOPLIST_FILE = SpeakerCaffeine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.code-chimp.SpeakerCaffeine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -336,12 +470,14 @@
 			baseConfigurationReference = 136D169A10024B5606AC8CBA /* Pods-SpeakerCaffeine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C65F7326GE;
+				DEVELOPMENT_TEAM = XD334LJUCC;
 				INFOPLIST_FILE = SpeakerCaffeine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.code-chimp.SpeakerCaffeine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -349,6 +485,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8E011DC51EBA29950005780E /* Build configuration list for PBXNativeTarget "SpeakerCaffeine Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E011DC31EBA29950005780E /* Debug */,
+				8E011DC41EBA29950005780E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8E5663AF1E9BFF6B005265C2 /* Build configuration list for PBXProject "SpeakerCaffeine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

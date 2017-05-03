@@ -11,6 +11,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="4LM-rm-I2z" customClass="StatusMenuController" customModule="SpeakerCaffeine" customModuleProvider="target">
             <connections>
+                <outlet property="startAtLoginItem" destination="rF8-Cg-4Y0" id="oeP-NQ-q4h"/>
                 <outlet property="statusMenu" destination="u2w-9A-eae" id="feA-IJ-0FW"/>
             </connections>
         </customObject>
@@ -20,6 +21,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="wB1-er-sMd"/>
+                <menuItem title="Launch at login" id="rF8-Cg-4Y0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleStartAtLogin:" target="4LM-rm-I2z" id="pnq-9F-IAh"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="lmC-us-keY">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -27,6 +34,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="69" y="166"/>
         </menu>
     </objects>
 </document>

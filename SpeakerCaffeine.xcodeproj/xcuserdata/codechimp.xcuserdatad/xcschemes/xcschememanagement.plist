@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SpeakerCaffeine Helper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>SpeakerCaffeine.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8E011DB61EBA29950005780E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8E5663B31E9BFF6B005265C2</key>
 		<dict>
 			<key>primary</key>
