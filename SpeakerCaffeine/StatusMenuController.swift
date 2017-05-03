@@ -14,6 +14,7 @@ class StatusMenuController: NSObject, DeviceListDelegate {
   let silentAudio = SilentAudio()
   let startIndex = 1
   let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+  var statusButton: NSStatusBarButton?
 
   @IBOutlet weak var statusMenu: NSMenu!
 
@@ -22,18 +23,35 @@ class StatusMenuController: NSObject, DeviceListDelegate {
   }
   
   override func awakeFromNib() {
-    statusItem.title = "SpeakerCaffeine"
+    statusButton = statusItem.button
+    let icon = NSImage(named: "StatusIcon")
+    icon?.isTemplate = true
+    statusButton?.image = icon
     statusItem.menu = statusMenu
 
     deviceList.delegate = self
     deviceList.populate()
 
-    if deviceList.currentDeviceEnabled() {
-      silentAudio.periodicallyPlay()
-    }
+    startOrStopAudio()
 
     NotificationCenter.defaultCenter.subscribe(self, eventType: AudioDeviceEvent.self, dispatchQueue: DispatchQueue.main)
     NotificationCenter.defaultCenter.subscribe(self, eventType: AudioHardwareEvent.self, dispatchQueue: DispatchQueue.main)
+  }
+
+  func startOrStopAudio() {
+    let currentDevice = AudioDevice.defaultOutputDevice()
+
+    startOrStopAudio(currentDevice)
+  }
+
+  func startOrStopAudio(_ device: AudioDevice?) {
+    if let device = device, deviceList.enabled(device) {
+      statusButton?.appearsDisabled = false
+      silentAudio.periodicallyPlay()
+    } else {
+      statusButton?.appearsDisabled = true
+      silentAudio.stop()
+    }
   }
 
   func deviceNamesChanged(oldDeviceNames: [String], newDeviceNames: [String]) {
@@ -94,14 +112,6 @@ extension StatusMenuController: EventSubscriber {
       }
     default:
       break
-    }
-  }
-
-  func startOrStopAudio(_ device: AudioDevice) {
-    if deviceList.enabled(device) {
-      silentAudio.periodicallyPlay()
-    } else {
-      silentAudio.stop()
     }
   }
 }

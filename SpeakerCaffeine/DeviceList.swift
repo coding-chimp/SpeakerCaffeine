@@ -45,12 +45,6 @@ class DeviceList {
     self.deviceNames = deviceNames
   }
 
-  func currentDeviceEnabled() -> Bool {
-    let currentDeviceName = AudioDevice.defaultOutputDevice()?.name ?? ""
-
-    return enabledDevices.contains(currentDeviceName)
-  }
-
   func enabled(_ device: AudioDevice) -> Bool {
     let name = deviceName(device)
     
