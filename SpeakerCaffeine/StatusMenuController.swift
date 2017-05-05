@@ -11,6 +11,7 @@ import Cocoa
 import ServiceManagement
 
 class StatusMenuController: NSObject, DeviceListDelegate {
+  let aboutWindow = AboutWindow()
   let defaults = UserDefaults.standard
   let deviceList = DeviceList()
   let silentAudio = SilentAudio()
@@ -26,6 +27,11 @@ class StatusMenuController: NSObject, DeviceListDelegate {
     startAtLogin = !startAtLogin
     setStartAtLoginItemState()
     setLoginItem()
+  }
+  
+  @IBAction func aboutClicked(_ sender: Any) {
+    aboutWindow.showWindow(nil)
+    NSApp.activate(ignoringOtherApps: true)
   }
   
   @IBAction func quitClicked(_ sender: Any) {

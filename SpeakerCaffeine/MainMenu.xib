@@ -21,14 +21,20 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="wB1-er-sMd"/>
-                <menuItem title="Launch at login" id="rF8-Cg-4Y0">
+                <menuItem title="Launch at Login" id="rF8-Cg-4Y0">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="toggleStartAtLogin:" target="4LM-rm-I2z" id="pnq-9F-IAh"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Quit" id="lmC-us-keY">
+                <menuItem title="About..." id="xs7-FQ-9wR">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="aboutClicked:" target="4LM-rm-I2z" id="WaY-kB-Vnq"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="LHM-uL-8J4"/>
+                <menuItem title="Quit" keyEquivalent="q" id="lmC-us-keY">
                     <connections>
                         <action selector="quitClicked:" target="4LM-rm-I2z" id="LRw-Kh-YRL"/>
                     </connections>

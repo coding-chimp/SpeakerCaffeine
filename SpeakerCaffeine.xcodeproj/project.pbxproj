@@ -19,6 +19,8 @@
 		8E5663C91E9C03C0005265C2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5663C81E9C03C0005265C2 /* MainMenu.xib */; };
 		8E8FEA5D1EB75EB2001EF05D /* SilentAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FEA5C1EB75EB2001EF05D /* SilentAudio.swift */; };
 		8E8FEA5F1EB87922001EF05D /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FEA5E1EB87922001EF05D /* DeviceList.swift */; };
+		8ECE1E8D1EBCBB8E00F52099 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE1E8C1EBCBB8D00F52099 /* AboutWindow.xib */; };
+		8ECE1E8F1EBCBCD900F52099 /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE1E8E1EBCBCD900F52099 /* AboutWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,8 @@
 		8E5663C81E9C03C0005265C2 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8E8FEA5C1EB75EB2001EF05D /* SilentAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentAudio.swift; sourceTree = "<group>"; };
 		8E8FEA5E1EB87922001EF05D /* DeviceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
+		8ECE1E8C1EBCBB8D00F52099 /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		8ECE1E8E1EBCBCD900F52099 /* AboutWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				8E5663C61E9C0058005265C2 /* StatusMenuController.swift */,
 				8E8FEA5E1EB87922001EF05D /* DeviceList.swift */,
 				8E8FEA5C1EB75EB2001EF05D /* SilentAudio.swift */,
+				8ECE1E8E1EBCBCD900F52099 /* AboutWindow.swift */,
+				8ECE1E8C1EBCBB8D00F52099 /* AboutWindow.xib */,
 				8E5663BB1E9BFF6B005265C2 /* Assets.xcassets */,
 				8E5663C01E9BFF6B005265C2 /* Info.plist */,
 				8E5663C81E9C03C0005265C2 /* MainMenu.xib */,
@@ -235,6 +241,7 @@
 			files = (
 				8E5663BC1E9BFF6B005265C2 /* Assets.xcassets in Resources */,
 				8E5663C91E9C03C0005265C2 /* MainMenu.xib in Resources */,
+				8ECE1E8D1EBCBB8E00F52099 /* AboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 				8E5663B81E9BFF6B005265C2 /* AppDelegate.swift in Sources */,
 				8E8FEA5D1EB75EB2001EF05D /* SilentAudio.swift in Sources */,
 				8E8FEA5F1EB87922001EF05D /* DeviceList.swift in Sources */,
+				8ECE1E8F1EBCBCD900F52099 /* AboutWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
