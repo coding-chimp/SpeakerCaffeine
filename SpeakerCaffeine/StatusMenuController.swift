@@ -16,10 +16,12 @@ class StatusMenuController: NSObject, DeviceListDelegate {
   let deviceList = DeviceList()
   let silentAudio = SilentAudio()
   var startAtLogin = false
-  let startIndex = 1
+  let startIndex = 4
   let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
   var statusButton: NSStatusBarButton?
 
+  @IBOutlet weak var currentDeviceItem: NSMenuItem!
+  @IBOutlet weak var currentStatusItem: NSMenuItem!
   @IBOutlet weak var statusMenu: NSMenu!
   @IBOutlet weak var startAtLoginItem: NSMenuItem!
 
@@ -64,13 +66,28 @@ class StatusMenuController: NSObject, DeviceListDelegate {
   }
 
   func startOrStopAudio(_ device: AudioDevice?) {
+    setCurrentDevice(device)
+
     if let device = device, deviceList.enabled(device) {
-      statusButton?.appearsDisabled = false
+      setActive(true)
       silentAudio.periodicallyPlay()
     } else {
-      statusButton?.appearsDisabled = true
+      setActive(false)
       silentAudio.stop()
     }
+  }
+
+  private func setCurrentDevice(_ device: AudioDevice?) {
+    if let device = device {
+      let name = deviceList.deviceName(device)
+      currentDeviceItem.title = "Output Device: \(name)"
+    }
+  }
+
+  private func setActive(_ active: Bool) {
+    let state = active ? "Enabled" : "Disabled"
+    statusButton?.appearsDisabled = !active
+    currentStatusItem.title = "SpeakerCaffeine: \(state)"
   }
 
   func deviceNamesChanged(oldDeviceNames: [String], newDeviceNames: [String]) {
@@ -104,6 +121,7 @@ class StatusMenuController: NSObject, DeviceListDelegate {
 
   func toggleDevice(sender: NSMenuItem) {
     deviceList.toggle(sender.title)
+    startOrStopAudio()
   }
 
   private func setStartAtLoginItemState() {

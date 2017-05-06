@@ -11,12 +11,21 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="4LM-rm-I2z" customClass="StatusMenuController" customModule="SpeakerCaffeine" customModuleProvider="target">
             <connections>
+                <outlet property="currentDeviceItem" destination="S7Y-wj-lBI" id="xs6-JH-ICr"/>
+                <outlet property="currentStatusItem" destination="Der-aq-0H5" id="h1s-rC-XMC"/>
                 <outlet property="startAtLoginItem" destination="rF8-Cg-4Y0" id="oeP-NQ-q4h"/>
                 <outlet property="statusMenu" destination="u2w-9A-eae" id="feA-IJ-0FW"/>
             </connections>
         </customObject>
         <menu autoenablesItems="NO" id="u2w-9A-eae">
             <items>
+                <menuItem title="SpeakerCaffeine: Disabled" enabled="NO" id="Der-aq-0H5">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Output Device: " enabled="NO" id="S7Y-wj-lBI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="7JP-bv-U8w"/>
                 <menuItem title="Enable for Output Devices:" enabled="NO" id="6Cn-P3-Jxf">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

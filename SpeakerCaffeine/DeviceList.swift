@@ -70,7 +70,7 @@ class DeviceList {
     populate()
   }
 
-  private func deviceName(_ device: AudioDevice) -> String {
+  func deviceName(_ device: AudioDevice) -> String {
     if device.name != "Built-in Output" { return device.name }
 
     if device.isJackConnected(direction: .playback) ?? false {
